@@ -1,0 +1,26 @@
+"use strict";
+const form = document.querySelector("#todo-form");
+const list = document.querySelector("#tasks");
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  const field = document.querySelector("#task");
+  const text = field.value.trim();
+  if (!text) return;
+  const item = document.createElement("li");
+  const label = document.createElement("label");
+  const check = document.createElement("input");
+  check.type = "checkbox";
+  const span = document.createElement("span");
+  span.textContent = text;
+  check.addEventListener("change", () => span.classList.toggle("done", check.checked));
+  label.append(check, " ", span);
+  const remove = document.createElement("button");
+  remove.type = "button";
+  remove.textContent = "Remove";
+  remove.className = "secondary";
+  remove.addEventListener("click", () => item.remove());
+  item.append(label, remove);
+  list.append(item);
+  form.reset();
+  field.focus();
+});

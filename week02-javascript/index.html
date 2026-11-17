@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Bill Splitter</title><link rel="stylesheet" href="styles.css"><script src="bill.js" defer></script></head>
+<body><main class="card"><h1>Bill splitter</h1><p>Enter the bill, choose a tip and split it fairly.</p>
+  <form id="bill-form" novalidate>
+    <label for="people">Number of people</label><input id="people" type="number" min="1" step="1" value="2">
+    <label for="tip">Tip rate</label><select id="tip"><option value="0">0%</option><option value="5">5%</option><option value="10" selected>10%</option><option value="15">15%</option><option value="20">20%</option></select>
+    <section><h2>Menu items</h2><div id="items"></div><button id="add-item" type="button" class="secondary">Add menu item</button></section>
+    <p id="errors" class="error" aria-live="polite"></p><button type="submit">Calculate split</button>
+  </form>
+  <section id="result" class="result" aria-live="polite"></section>
+  <h2>Simple total mode</h2><p>Use this optional field when you already know the bill total.</p>
+  <label for="total">Total bill amount</label><input id="total" type="number" min="0" step="0.01" placeholder="e.g. 2500">
+  <button id="simple-calculate" type="button" class="secondary">Calculate entered total</button>
+</main></body></html>
