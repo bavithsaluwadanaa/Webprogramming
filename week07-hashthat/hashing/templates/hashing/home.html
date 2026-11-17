@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>HashThat</title><style>body{max-width:720px;margin:3rem auto;padding:0 1rem;font:1rem/1.5 system-ui;color:#20352c}textarea{width:100%;padding:.7rem;font:inherit}button{padding:.7rem 1rem;background:#184c42;color:#fff;border:0;border-radius:.4rem;font-weight:700}#quickhash{overflow-wrap:anywhere;color:#184c42}</style></head><body><h1>HashThat</h1><p>Submit text to save its SHA-256 digest. The preview updates as you type.</p><form method="post">{% csrf_token %}{{ form.as_p }}<button name="submit" type="submit">Hash and save</button></form><h2>Live SHA-256 preview</h2><p id="quickhash" aria-live="polite"></p><script>
+const textField = document.querySelector("#id_text");
+let requestNumber = 0;
+textField.addEventListener("input", async () => {
+  const mine = ++requestNumber;
+  const params = new URLSearchParams({text: textField.value});
+  const response = await fetch(`/quickhash/?${params}`);
+  const data = await response.json();
+  if (mine === requestNumber) document.querySelector("#quickhash").textContent = data.hash;
+});
+</script></body></html>
