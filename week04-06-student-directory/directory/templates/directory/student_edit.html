@@ -1,0 +1,1 @@
+{% extends 'directory/base.html' %}{% block title %}Edit {{ student }}{% endblock %}{% block content %}<h1>Edit student</h1><form class="panel edit-form" method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button type="submit">Save changes</button> <a href="{% url 'directory:student_detail' student.id %}">Cancel</a></form>{% endblock %}
