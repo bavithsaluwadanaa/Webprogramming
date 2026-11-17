@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { margin: 0; color: #18302a; background: #f5f7f2; font: 1rem/1.6 system-ui, sans-serif; }
+.site-header { padding: 2rem max(1.25rem, calc((100% - 1050px)/2)); background: #184c42; color: white; }
+.site-header p { margin: .25rem 0 0; }
+.brand { color: white; font-size: 1.8rem; font-weight: 750; text-decoration: none; }
+nav { display: flex; gap: 1.25rem; padding: .8rem max(1.25rem, calc((100% - 1050px)/2)); background: #dbe9df; }
+nav a { color: #184c42; font-weight: 650; }
+nav a[aria-current="page"] { text-decoration-thickness: .18em; text-underline-offset: .2em; }
+main { width: min(1050px, calc(100% - 2.5rem)); margin: 2rem auto 3rem; }
+.hero { padding: clamp(1.5rem, 5vw, 3.5rem); border-radius: 1rem; background: #d6e8dc; }
+h1 { margin-top: 0; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; }
+.columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+article { padding: 1.25rem; border: 1px solid #c9d8ce; border-radius: .8rem; background: white; }
+article h2 { margin-top: 0; }
+.button { display: inline-block; padding: .7rem 1rem; border-radius: .45rem; background: #184c42; color: white; font-weight: 700; text-decoration: none; }
+footer { padding: 1rem; text-align: center; background: #18302a; color: white; }
+@media (max-width: 700px) { .columns { grid-template-columns: 1fr; } .site-header { padding-top: 1.25rem; padding-bottom: 1.25rem; } }
